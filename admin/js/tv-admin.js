@@ -35,4 +35,10 @@
 		jQuery( '.toplevel_page_tv .tv-tab.active' ).removeClass( 'active' ).addClass( 'hidden' );
 		jQuery( '.toplevel_page_tv .tv-tab#' + jQuery( this ).data( 'target' ) ).removeClass( 'hidden' ).addClass( 'active' );
 	 } );
+
+	 jQuery( document ).on( 'click', '.toplevel_page_tv input[type="submit"]', function( event ) {
+		 jQuery( this ).closest( 'form' ).ajaxForm( function( event, response ) {
+			 console.log(response);
+		 } );
+	 } );
 })( jQuery );

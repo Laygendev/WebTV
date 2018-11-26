@@ -163,6 +163,7 @@ class TV {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'register_widgets' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
+		$this->loader->add_action( 'wp_ajax_save_tv_options', $plugin_admin, 'save_tv_options' );
 	}
 
 	/**

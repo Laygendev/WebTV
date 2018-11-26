@@ -97,6 +97,7 @@ class TV_Admin {
 		 * class.
 		 */
 
+		wp_enqueue_script( $this->TV . '-jquery-form', plugin_dir_url( __FILE__ ) . 'js/jquery.form.min.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( $this->TV, plugin_dir_url( __FILE__ ) . 'js/tv-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
@@ -120,6 +121,35 @@ class TV_Admin {
 	}
 
 	public function render() {
+		$tv_options = get_option( 'tv_options', array(
+			'channel_id'   => '',
+			'facebook'     => '',
+			'twitter'      => '',
+			'youtube'      => '',
+			'twitch'       => '',
+			'informations' => '',
+		) );
+
 		require_once TV_PLUGIN_PATH . 'admin/partials/tv-admin-display.php';
+	}
+
+	public function save_tv_options() {
+		$tv_options = ! empty( $_POST['tv_options'] ) ? (array) $_POST['tv_options'] : array();
+
+
+		$tv_options_database = get_option( 'tv_options', array(
+			'channel_id'   => '',
+			'facebook'     => '',
+			'twitter'      => '',
+			'youtube'      => '',
+			'twitch'       => '',
+			'informations' => '',
+		) );
+
+		$tv_options_database = array_merge( $tv_options_database, $tv_options );
+
+		update_option( 'tv_options', $tv_options_database );
+
+		wp_send_json_success();
 	}
 }
