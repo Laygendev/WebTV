@@ -28,5 +28,11 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+	 jQuery( document ).on( 'click', '.toplevel_page_tv .tv-menu li', function() {
+		jQuery( '.toplevel_page_tv .tv-menu li.active' ).removeClass( 'active' );
+		jQuery( this ).addClass( 'active' );
 
+		jQuery( '.toplevel_page_tv .tv-tab.active' ).removeClass( 'active' ).addClass( 'hidden' );
+		jQuery( '.toplevel_page_tv .tv-tab#' + jQuery( this ).data( 'target' ) ).removeClass( 'hidden' ).addClass( 'active' );
+	 } );
 })( jQuery );

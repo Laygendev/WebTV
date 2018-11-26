@@ -37,6 +37,10 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'TV_VERSION', '1.0.0' );
 
+if ( !defined( 'TV_PLUGIN_PATH' ) ) {
+	define( 'TV_PLUGIN_PATH', str_replace( '\\', '/', plugin_dir_path( __FILE__ ) ) );
+}
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-tv-activator.php

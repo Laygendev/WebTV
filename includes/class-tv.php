@@ -122,6 +122,11 @@ class TV {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-tv-public.php';
 
+		/**
+		 * Our widget class
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'widgets/class-tv-widget.php';
+
 		$this->loader = new TV_Loader();
 
 	}
@@ -156,7 +161,8 @@ class TV {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'widgets_init', $plugin_admin, 'register_widgets' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
 	}
 
 	/**

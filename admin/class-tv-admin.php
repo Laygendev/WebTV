@@ -72,7 +72,8 @@ class TV_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		wp_enqueue_style( $this->TV . '-reset', plugin_dir_url( __FILE__ ) . 'css/reset.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->TV . '-font', 'https://fonts.googleapis.com/css?family=Roboto', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->TV, plugin_dir_url( __FILE__ ) . 'css/tv-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -100,4 +101,25 @@ class TV_Admin {
 
 	}
 
+	/**
+	 * Create our custom widget
+	 *
+	 * @since 1.0.0
+	 */
+	public function register_widgets() {
+		register_widget( 'TV_Widget' );
+	}
+
+	/**
+	 * Create setting page
+	 *
+	 * @since 1.0.0
+	 */
+	public function admin_menu() {
+		add_menu_page( __( 'WebTV', 'tv' ), __( 'WebTV', 'tv' ), 'manage_options', 'tv', array( $this, 'render' ) );
+	}
+
+	public function render() {
+		require_once TV_PLUGIN_PATH . 'admin/partials/tv-admin-display.php';
+	}
 }

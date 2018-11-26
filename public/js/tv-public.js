@@ -29,4 +29,14 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	 console.log(tv_options);
+
+	new Twitch.Embed("twitch-embed", {
+		width: '100%',
+		height: '100%',
+		channel: tv_options.tv_field_channel_id,
+		layout: 'video'
+	});
+
+
 })( jQuery );

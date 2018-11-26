@@ -2,3 +2,109 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+.toplevel_page_tv  {
+	font-family: 'Roboto';
+}
+.toplevel_page_tv #wpcontent {
+	padding-left: 0;
+}
+.toplevel_page_tv h2 {
+	margin: 0;
+}
+.toplevel_page_tv h3 {
+	font-size: 1.6em;
+	margin: 0;
+}
+
+.toplevel_page_tv p  {
+	line-height: 2em;
+}
+
+.toplevel_page_tv .tv-section-head {
+	width: 50%;
+	margin: auto;
+}
+
+.toplevel_page_tv .button {
+	text-decoration: none;
+	background: #0078be;
+	border-color: #005e94;
+	color: white;
+	border-style: solid;
+	border-width: 1px 1px 2px;
+	cursor: pointer;
+	font-size: 13px;
+	border-radius: 4px;
+	padding: 7px 14px 9px;
+	line-height: 14px;
+}
+
+.toplevel_page_tv .tv-head {
+	background-color: #fff;
+	box-shadow: 0 1px 0 rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	height: 50px;
+	margin-bottom: 40px;
+}
+
+.toplevel_page_tv .tv-head h2 {
+	font-size: 1.6em;
+	line-height: 50px;
+	font-weight: bold;
+}
+
+.toplevel_page_tv .tv-section {
+	width: 50%;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+.toplevel_page_tv .tv-section.tv-menu {
+	padding: 0px;
+	text-align: left;
+	width: 52.6%;
+}
+.toplevel_page_tv .tv-menu {
+	display: flex;
+	flex-direction: row;
+}
+
+.toplevel_page_tv .tv-menu li:not(.active):after {
+	content: '';
+	border-bottom: solid #323232 5px;
+	display: block;
+	width: 0px;
+	transition: width 0.5s;
+	position: relative;
+	top: 5px;
+}
+
+.toplevel_page_tv .tv-menu li.active:after {
+	content: '';
+	border-bottom: solid #323232 5px;
+	display: block;
+	width: 100%;
+	transition: width 0.5s;
+	position: relative;
+	top: 5px;
+}
+
+.toplevel_page_tv .tv-section.tv-menu li:hover:after {
+	width: 100%;
+}
+
+.toplevel_page_tv .tv-section.tv-menu a {
+	display: inline-block;
+	padding: 20px;
+	text-decoration: none;
+}
+
+.toplevel_page_tv .tv-section.tv-welcome {
+	margin-bottom: 10px;
+}
+
+.toplevel_page_tv .tv-section.tv-bg {
+	background-color: #fff;
+	box-shadow: 0 1px 0 rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+}

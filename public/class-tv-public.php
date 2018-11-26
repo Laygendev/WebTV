@@ -75,6 +75,7 @@ class TV_Public {
 
 		wp_enqueue_style( $this->TV, plugin_dir_url( __FILE__ ) . 'css/tv-public.css', array(), $this->version, 'all' );
 
+		wp_enqueue_style( $this->TV . '-font-awesome', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css', array(), $this->version );
 	}
 
 	/**
@@ -96,7 +97,11 @@ class TV_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->TV, plugin_dir_url( __FILE__ ) . 'js/tv-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'webtv-twitch-embed', 'https://embed.twitch.tv/embed/v1.js', array(), $this->version, true );
+
+
+		wp_enqueue_script( $this->TV, plugin_dir_url( __FILE__ ) . 'js/tv-public.js', array( 'jquery' ), $this->version, true );
+		wp_localize_script( $this->TV, 'tv_options', get_option( 'tv_options' ) );
 
 	}
 
